@@ -5,7 +5,15 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <activity
-            android:name=".activity.page.NoConnection"
+            android:name=".activity.page.ErrNoConnection"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.page.ErrInternalServer"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.page.ErrConnectionTimeout"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>

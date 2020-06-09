@@ -40,14 +40,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="@string/txt_offline"
+                android:text="@string/txt_err_no_internet"
                 android:textAlignment="center"
                 android:textColor="@color/grey_60"
                 android:textSize="@dimen/spacing_mlarge" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_no_internet_access"
+                android:text="@string/txt_err_no_internet_desc"
                 android:textAlignment="center"
                 android:textColor="@color/grey_60" />
         </LinearLayout>

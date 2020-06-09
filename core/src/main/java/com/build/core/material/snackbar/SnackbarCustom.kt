@@ -3,12 +3,11 @@ package com.build.core.material.snackbar
 import android.app.Activity
 import android.graphics.Color
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.build.core.R
 import com.build.core.utils.Utils
-import com.build.core.utils.invisible
-import com.build.core.utils.visible
 import com.google.android.material.snackbar.Snackbar
 
 interface SnackbarCustom : BaseSnackbarCustom {
@@ -31,18 +30,15 @@ interface SnackbarCustom : BaseSnackbarCustom {
 
         val snackView = activity.layoutInflater.inflate(R.layout.snackbar, null)
         snackView.findViewById<TextView>(R.id.message).text = message
-        snackView.findViewById<View>(R.id.view).invisible()
 
         val icon = snackView.findViewById<ImageView>(R.id.icon)
         icon.setImageResource(this.drawableId)
         Utils.setCircleImageToImageView(activity, icon, drawableId, 0, 0)
 
         label?.let {
-            snackView.findViewById<View>(R.id.view).visible()
-
-            val tv_action = snackView.findViewById<TextView>(R.id.action)
-            tv_action.text = it
-            tv_action.setOnClickListener {
+            val button = snackView.findViewById<Button>(R.id.action)
+            button.text = it
+            button.setOnClickListener {
                 listener?.invoke()
             }
         }

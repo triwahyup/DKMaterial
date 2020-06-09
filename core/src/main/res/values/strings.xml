@@ -6,12 +6,20 @@
     <!-- /snackbar -->
 
     <!-- notification -->
-    <string name="txt_no_internet">No internet !</string>
-    <string name="txt_offline">You`re offline</string>
-    <string name="txt_no_internet_access">
+    <string name="txt_err_no_internet">You`re offline</string>
+    <string name="txt_err_no_internet_desc">
         Your network is unavailable. Check your data or wifi connection.
     </string>
+    <string name="txt_err_internal_server">Internal Server Error</string>
+    <string name="txt_err_internal_server_desc">
+        The server encountered an internal server error or misconfiguration and was unable to complete your request.
+    </string>
+    <string name="txt_err_connection_timeout">Connection Time Out</string>
+    <string name="txt_err_connection_timeout_desc">
+        This page can’t be reached, took too long to respond. This error generally happens when there is a problem in internet connection or the page is not loading.
+    </string>
     <string name="txt_check_connection">Check Connection ...</string>
+    <string name="txt_load_again">Load Again ...</string>
     <!-- /notification -->
 
     <!-- button -->

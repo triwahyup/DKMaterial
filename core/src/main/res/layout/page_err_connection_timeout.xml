@@ -29,11 +29,11 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/roboto_light"
-                android:text="@string/txt_check_connection" />
+                android:text="@string/txt_load_again" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layoutNoInternet"
+            android:id="@+id/layoutErrorDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="@string/txt_offline"
+                android:text="@string/txt_err_connection_timeout"
                 android:textColor="@color/grey_60"
                 android:textSize="@dimen/spacing_mlarge" />
 
@@ -57,7 +57,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/txt_no_internet_access"
+                android:text="@string/txt_err_connection_timeout_desc"
                 android:textAlignment="center"
                 android:textColor="@color/grey_60" />
 

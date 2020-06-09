@@ -25,7 +25,7 @@ interface ConfirmCustom : BaseCustomConfirm {
         val dialog = Dialog(activity)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.popup_custom_confirm)
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
 
         dialog.backgroundImage.setImageResource(this.drawableBackground)
         dialog.iconShape.setBackgroundResource(this.drawableIconShape)

@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import com.build.core.BaseActivity
-import com.build.core.activity.page.NoConnection
-import com.build.dkmaterial.R
+import com.build.core.activity.page.ErrConnectionTimeout
+import com.build.core.activity.page.ErrInternalServer
+import com.build.core.activity.page.ErrNoConnection
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : BaseActivity() {
@@ -19,13 +21,26 @@ class MainActivity : BaseActivity() {
         init_animation()
 
         page_no_internet.setOnClickListener {
-            startActivity(Intent(this, NoConnection::class.java))
+            startActivity(Intent(this, ErrNoConnection::class.java))
+        }
+        page_internal_server_error.setOnClickListener {
+            startActivity(Intent(this, ErrInternalServer::class.java))
+        }
+        page_connection_timeout.setOnClickListener {
+            startActivity(Intent(this, ErrConnectionTimeout::class.java))
         }
     }
 
     fun init_toast_snackbar() {
         snackbar_success.setOnClickListener {
-            showSnackbar("success", "Berhasil menyimpan data ...")
+            showSnackbar(
+                "success",
+                "Berhasil menyimpan data ...",
+                Snackbar.LENGTH_LONG,
+                "Tutup"
+            ) {
+                hiddenSnackbar()
+            }
         }
 
         toast_success.setOnClickListener {
@@ -45,8 +60,14 @@ class MainActivity : BaseActivity() {
                 getString(R.string.dummy_privacy),
                 "Disagree",
                 "Agree",
-                { showSnackbar("error", "Snackbar Error")},
-                { showSnackbar("success", "Snackbar Success")}
+                {
+                    showSnackbar("error", "Snackbar Error")
+                    hiddenPopup()
+                },
+                {
+                    showSnackbar("success", "Snackbar Success")
+                    hiddenPopup()
+                }
             )
         }
         popup_upload.setOnClickListener {
@@ -55,8 +76,14 @@ class MainActivity : BaseActivity() {
                 "Gagal upload file. Silakan cek koneksi internet anda!",
                 "Cancel",
                 "Retry",
-                { showSnackbar("inbox", "Snackbar Inbox")},
-                { showSnackbar("info", "Snackbar Info")}
+                {
+                    showSnackbar("inbox", "Snackbar Inbox")
+                    hiddenPopup()
+                },
+                {
+                    showSnackbar("info", "Snackbar Info")
+                    hiddenPopup()
+                }
             )
         }
         popup_custom.setOnClickListener {
@@ -65,8 +92,14 @@ class MainActivity : BaseActivity() {
                 "Apakah anda yakin ingin menghapus data ini ?",
                 "Ya",
                 "Batal",
-                { showSnackbar("inbox", "Snackbar Inbox")},
-                { showSnackbar("info", "Snackbar Info")}
+                {
+                    showSnackbar("inbox", "Snackbar Inbox")
+                    hiddenPopup()
+                },
+                {
+                    showSnackbar("info", "Snackbar Info")
+                    hiddenPopup()
+                }
             )
         }
     }

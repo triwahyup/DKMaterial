@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layoutProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <ProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="@color/grey_400" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/txt_check_connection" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutErrorDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/page_no_internet" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/txt_err_no_internet"
+                android:textColor="@color/grey_60"
+                android:textSize="@dimen/spacing_mlarge" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/txt_err_no_internet_desc"
+                android:textAlignment="center"
+                android:textColor="@color/grey_60" />
+
+            <Button
+                android:id="@+id/retry"
+                android:background="@drawable/shape_rounded_primary"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_mlarge"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:text="@string/btn_retry"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

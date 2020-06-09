@@ -1,17 +1,17 @@
 package com.build.core
 
-import android.app.Activity
 import android.app.Dialog
 import android.graphics.Paint
-import android.view.View
 import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.build.core.material.dialog.ConfirmCustomImpl
 import com.build.core.material.snackbar.SnackbarCustomImpl
 import com.build.core.material.toast.ToastCustomImpl
+import com.build.core.utils.gone
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.popup_no_internet.*
+import kotlinx.android.synthetic.main.page_err_internal_server.*
+import kotlinx.android.synthetic.main.popup_no_internet.retry
 import kotlinx.android.synthetic.main.popup_privacy_and_policy.*
 
 
@@ -21,6 +21,7 @@ abstract class BaseActivity : AppCompatActivity(),
     private var snackbar: Snackbar? = null
     private var nDialog: Dialog? = null
 
+    /** TOAST SNACKBAR MATERIAL */
     override fun showToast(type: String, message: String, duration: Int) {
         ToastCustomImpl(type).getToast(this, message, duration).show()
     }
@@ -32,11 +33,21 @@ abstract class BaseActivity : AppCompatActivity(),
         label: String?,
         listener: (() -> Unit)?
     ): Snackbar? {
-        snackbar = SnackbarCustomImpl(type).getSnackbar(this, message, duration)
+        snackbar = SnackbarCustomImpl(type).getSnackbar(this, message, duration, label, listener)
         snackbar?.show()
         return snackbar
     }
 
+    override fun hiddenSnackbar() {
+        snackbar?.let {
+            if(it.isShown) {
+                it.dismiss()
+            }
+        }
+    }
+    /** END TOAST SNAKCBAR MATERIAL */
+
+    /** POPUP MATERIAL */
     override fun popupNoInternetAccess(listener: (() -> Unit)?) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -91,6 +102,15 @@ abstract class BaseActivity : AppCompatActivity(),
         nDialog?.show()
         return nDialog
     }
+
+    override fun hiddenPopup() {
+        if(nDialog != null && nDialog?.isShowing!!) {
+            nDialog?.dismiss()
+            nDialog = null
+        }
+    }
+    /** END POPUP MATERIAL */
+
 }
 
 interface BaseToastImpl {
@@ -105,6 +125,7 @@ interface BaseSnackbarImpl {
         label: String? = null,
         listener: (() -> Unit)? = null
     ) : Snackbar?
+    fun hiddenSnackbar()
 }
 
 interface BasePopupImpl {
@@ -122,4 +143,5 @@ interface BasePopupImpl {
         actionY: String?,
         listenerX: (() -> Unit)?,
         listenerY: (() -> Unit)?) : Dialog?
+    fun hiddenPopup()
 }

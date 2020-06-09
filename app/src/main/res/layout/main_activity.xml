@@ -288,6 +288,24 @@
                         android:textAlignment="textStart"
                         android:paddingLeft="@dimen/spacing_mlarge"
                         android:paddingRight="@dimen/spacing_mlarge" />
+                    <Button
+                        android:id="@+id/page_internal_server_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:text="Internal Server Error"
+                        android:textAlignment="textStart"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge" />
+                    <Button
+                        android:id="@+id/page_connection_timeout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:text="Connection Timeout"
+                        android:textAlignment="textStart"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>

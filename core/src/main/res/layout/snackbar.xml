@@ -44,7 +44,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/grey_600"
                 android:textSize="@dimen/spacing_large"
-                app:layout_constraintEnd_toStartOf="@+id/view"
+                app:layout_constraintEnd_toStartOf="@+id/action"
                 app:layout_constraintStart_toEndOf="@+id/icon"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,34 +60,22 @@
                 android:textSize="12dp"
                 android:textColor="@color/grey_600"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/view"
+                app:layout_constraintEnd_toStartOf="@+id/action"
                 app:layout_constraintStart_toEndOf="@+id/icon"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="1dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/grey_600"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/action"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
+            <Button
                 android:id="@+id/action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:background="@color/transparent"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:textColor="@color/grey_600"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

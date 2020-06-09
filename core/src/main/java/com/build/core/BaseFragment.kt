@@ -19,6 +19,7 @@ abstract class BaseFragment : Fragment(),
     private var nDialog: Dialog? = null
     lateinit var nView: View
 
+    /** TOAST SNACKBAR MATERIAL */
     override fun showToast(type: String, message: String, duration: Int) {
         activity?.let {
             ToastCustomImpl(type).getToast(it, message, duration).show()
@@ -33,13 +34,23 @@ abstract class BaseFragment : Fragment(),
         listener: (() -> Unit)?
     ) : Snackbar? {
         activity?.let {
-            snackbar = SnackbarCustomImpl(type).getSnackbar(it, message, duration)
+            snackbar = SnackbarCustomImpl(type).getSnackbar(it, message, duration, label, listener)
             snackbar?.show()
             return snackbar
         }
         return null
     }
 
+    override fun hiddenSnackbar() {
+        snackbar?.let {
+            if(it.isShown) {
+                it.dismiss()
+            }
+        }
+    }
+    /** END TOAST SNAKCBAR MATERIAL */
+
+    /** POPUP MATERIAL */
     override fun popupNoInternetAccess(listener: (() -> Unit)?) {
         val dialog = Dialog(nView.context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -97,4 +108,12 @@ abstract class BaseFragment : Fragment(),
         }
         return null
     }
+
+    override fun hiddenPopup() {
+        if(nDialog != null && nDialog?.isShowing!!) {
+            nDialog?.dismiss()
+            nDialog = null
+        }
+    }
+    /** END POPUP MATERIAL */
 }
