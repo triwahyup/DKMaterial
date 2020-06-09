@@ -4,7 +4,7 @@ import android.app.Activity
 import android.app.Dialog
 import com.build.core.R
 
-class ConfirmCustomImpl(pType: String?) : ConfirmCustom {
+class ConfirmCustomImpl(pType: String) : ConfirmCustom {
     private val type = pType
 
     override fun getConfirm(
@@ -24,6 +24,21 @@ class ConfirmCustomImpl(pType: String?) : ConfirmCustom {
             }
         }
         return super.getConfirm(activity, message, actionX, actionY, listenerX, listenerY)
+    }
+
+    override fun getShowPrivacy(
+        activity: Activity,
+        message: String?,
+        actionX: String?,
+        actionY: String?,
+        listenerX: (() -> Unit)?,
+        listenerY: (() -> Unit)?
+    ) : Dialog {
+        return super.getShowPrivacy(activity, message, actionX, actionY, listenerX, listenerY)
+    }
+
+    override fun getShowNointernet(activity: Activity, listener: (() -> Unit)?): Dialog {
+        return super.getShowNointernet(activity, listener)
     }
 }
 

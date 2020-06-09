@@ -25,5 +25,6 @@
     <!-- button -->
     <string name="btn_retry">Retry</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="btn_back">Back</string>
     <!-- /button -->
 </resources>

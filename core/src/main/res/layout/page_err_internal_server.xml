@@ -43,7 +43,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/page_no_internet" />
+                android:src="@drawable/page_internal_server_error" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,15 +61,39 @@
                 android:textAlignment="center"
                 android:textColor="@color/grey_60" />
 
-            <Button
-                android:id="@+id/retry"
-                android:background="@drawable/shape_rounded_primary"
-                android:layout_width="200dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_mlarge"
-                android:layout_marginTop="@dimen/spacing_mlarge"
-                android:text="@string/btn_retry"
-                android:textColor="@android:color/white" />
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/retry"
+                    android:background="@drawable/shape_btn_grey"
+                    android:drawableStart="@drawable/ic_xml_refresh_white_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="@dimen/spacing_mlarge"
+                    android:minWidth="120dp"
+                    android:paddingStart="@dimen/spacing_mlarge"
+                    android:paddingEnd="@dimen/spacing_mlarge"
+                    android:text="@string/btn_retry"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/back"
+                    android:background="@drawable/shape_btn_grey"
+                    android:drawableStart="@drawable/ic_xml_arrow_back_white_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="@dimen/spacing_mlarge"
+                    android:minWidth="120dp"
+                    android:paddingStart="@dimen/spacing_mlarge"
+                    android:paddingEnd="@dimen/spacing_mlarge"
+                    android:text="@string/btn_back"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

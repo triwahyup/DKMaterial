@@ -13,63 +13,93 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <!-- header -->
         <LinearLayout
+            android:id="@+id/layoutProgressBar"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="@color/red_600">
-            <ImageView
-                android:layout_height="match_parent"
+            android:visibility="gone">
+            <ProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:background="@color/transparent"
+                android:indeterminateTint="@color/red_600" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/txt_check_connection"
+                android:textColor="@color/red_600" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutErrorDesc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- header -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:scaleType="centerCrop"
-                android:alpha="0.7"
-                app:srcCompat="@drawable/header_offline" />
-        </LinearLayout>
-        <!-- /header -->
+                android:layout_height="180dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@color/red_600">
+                <ImageView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:alpha="0.7"
+                    app:srcCompat="@drawable/header_offline" />
+            </LinearLayout>
+            <!-- /header -->
 
-        <!-- content -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/spacing_mlarge">
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- content -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="@string/txt_err_no_internet"
-                android:textAlignment="center"
-                android:textColor="@color/grey_60"
-                android:textSize="@dimen/spacing_mlarge" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_err_no_internet_desc"
-                android:textAlignment="center"
-                android:textColor="@color/grey_60" />
-        </LinearLayout>
-        <!-- /content -->
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_mlarge">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/txt_err_no_internet"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey_60"
+                    android:textSize="@dimen/spacing_mlarge" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_err_no_internet_desc"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey_60" />
+            </LinearLayout>
+            <!-- /content -->
 
-        <!-- footer -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_large"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/retry"
-                android:layout_width="wrap_content"
+            <!-- footer -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_rounded_error"
-                android:paddingLeft="@dimen/spacing_mlarge"
-                android:paddingRight="@dimen/spacing_mlarge"
-                android:text="@string/btn_retry"
-                android:textColor="@android:color/white" />
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/retry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_rounded_error"
+                    android:paddingLeft="@dimen/spacing_mlarge"
+                    android:paddingRight="@dimen/spacing_mlarge"
+                    android:text="@string/btn_retry"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+            <!-- footer -->
         </LinearLayout>
-        <!-- footer -->
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

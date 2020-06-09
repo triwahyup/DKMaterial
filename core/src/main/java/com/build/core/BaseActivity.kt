@@ -1,19 +1,12 @@
 package com.build.core
 
 import android.app.Dialog
-import android.graphics.Paint
-import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.build.core.material.dialog.ConfirmCustomImpl
 import com.build.core.material.snackbar.SnackbarCustomImpl
 import com.build.core.material.toast.ToastCustomImpl
-import com.build.core.utils.gone
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.page_err_internal_server.*
-import kotlinx.android.synthetic.main.popup_no_internet.retry
-import kotlinx.android.synthetic.main.popup_privacy_and_policy.*
-
 
 abstract class BaseActivity : AppCompatActivity(),
     BaseToastImpl, BaseSnackbarImpl, BasePopupImpl {
@@ -48,16 +41,17 @@ abstract class BaseActivity : AppCompatActivity(),
     /** END TOAST SNAKCBAR MATERIAL */
 
     /** POPUP MATERIAL */
-    override fun popupNoInternetAccess(listener: (() -> Unit)?) {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.popup_no_internet)
-        dialog.setCancelable(true)
-
-        dialog.retry.setOnClickListener {
-            listener?.invoke()
-        }
-        dialog.show()
+    override fun customPopupConfirm(
+        type: String,
+        message: String?,
+        actionX: String?,
+        actionY: String?,
+        listenerX: (() -> Unit)?,
+        listenerY: (() -> Unit)?
+    ): Dialog? {
+        nDialog = ConfirmCustomImpl(type).getConfirm(this, message, actionX, actionY, listenerX, listenerY)
+        nDialog?.show()
+        return nDialog
     }
 
     override fun popupPrivacyAndPolicy(
@@ -66,39 +60,14 @@ abstract class BaseActivity : AppCompatActivity(),
         actionY: String?,
         listenerX: (() -> Unit)?,
         listenerY: (() -> Unit)?
-    ) {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.popup_privacy_and_policy)
-        dialog.setCancelable(true)
-
-        dialog.message.text = message
-        actionX?.let {
-            dialog.leftBtn.text = it
-            dialog.leftBtn.paintFlags = dialog.leftBtn.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-            dialog.leftBtn.setOnClickListener {
-                listenerX?.invoke()
-            }
-        }
-        actionY?.let {
-            dialog.rightBtn.text = it
-            dialog.rightBtn.paintFlags = dialog.rightBtn.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-            dialog.rightBtn.setOnClickListener {
-                listenerY?.invoke()
-            }
-        }
-        dialog.show()
+    ): Dialog? {
+        nDialog = ConfirmCustomImpl("").getShowPrivacy(this, message, actionX, actionY, listenerX, listenerY)
+        nDialog?.show()
+        return nDialog
     }
 
-    override fun customPopupConfirm(
-        type: String?,
-        message: String?,
-        actionX: String?,
-        actionY: String?,
-        listenerX: (() -> Unit)?,
-        listenerY: (() -> Unit)?
-    ): Dialog? {
-        nDialog = ConfirmCustomImpl(type).getConfirm(this, message, actionX, actionY, listenerX, listenerY)
+    override fun popupNoInternet(listener: (() -> Unit)?) : Dialog? {
+        nDialog = ConfirmCustomImpl("").getShowNointernet(this, listener)
         nDialog?.show()
         return nDialog
     }
@@ -129,19 +98,20 @@ interface BaseSnackbarImpl {
 }
 
 interface BasePopupImpl {
-    fun popupNoInternetAccess(listener: (() -> Unit)?)
-    fun popupPrivacyAndPolicy(
-        message: String?,
-        actionX: String?,
-        actionY: String?,
-        listenerX: (() -> Unit)?,
-        listenerY: (() -> Unit)?)
     fun customPopupConfirm(
-        type: String?,
+        type: String,
         message: String?,
         actionX: String?,
         actionY: String?,
         listenerX: (() -> Unit)?,
         listenerY: (() -> Unit)?) : Dialog?
+    fun popupPrivacyAndPolicy(
+        message: String?,
+        actionX: String?,
+        actionY: String?,
+        listenerX: (() -> Unit)?,
+        listenerY: (() -> Unit)?
+    ): Dialog?
+    fun popupNoInternet(listener: (() -> Unit)?) : Dialog?
     fun hiddenPopup()
 }

@@ -50,26 +50,6 @@ class MainActivity : BaseActivity() {
     }
 
     fun init_popup() {
-        popup_nointernet.setOnClickListener {
-            popupNoInternetAccess {
-                showSnackbar("warning", "Snackbar Warning")
-            }
-        }
-        popup_gdpr.setOnClickListener {
-            popupPrivacyAndPolicy(
-                getString(R.string.dummy_privacy),
-                "Disagree",
-                "Agree",
-                {
-                    showSnackbar("error", "Snackbar Error")
-                    hiddenPopup()
-                },
-                {
-                    showSnackbar("success", "Snackbar Success")
-                    hiddenPopup()
-                }
-            )
-        }
         popup_upload.setOnClickListener {
             customPopupConfirm(
                 "upload_failure",
@@ -98,6 +78,24 @@ class MainActivity : BaseActivity() {
                 },
                 {
                     showSnackbar("info", "Snackbar Info")
+                    hiddenPopup()
+                }
+            )
+        }
+        popup_nointernet.setOnClickListener {
+            popupNoInternet({})
+        }
+        popup_gdpr.setOnClickListener {
+            popupPrivacyAndPolicy(
+                getString(R.string.dummy_privacy),
+                "Disagree",
+                "Agree",
+                {
+                    showSnackbar("error", "Snackbar Error")
+                    hiddenPopup()
+                },
+                {
+                    showSnackbar("success", "Snackbar Success")
                     hiddenPopup()
                 }
             )
