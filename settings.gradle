@@ -1,0 +1,3 @@
+rootProject.name='DK Material'
+include ':app'
+include ':core'

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- snackbar -->
+    <string name="snackbar_title">Pemberitahuan:</string>
+    <string name="snackbar_action_close">Tutup</string>
+    <!-- /snackbar -->
+
+    <!-- notification -->
+    <string name="txt_no_internet">No internet !</string>
+    <string name="txt_offline">You`re offline</string>
+    <string name="txt_no_internet_access">
+        Your network is unavailable. Check your data or wifi connection.
+    </string>
+    <string name="txt_check_connection">Check Connection ...</string>
+    <!-- /notification -->
+
+    <!-- button -->
+    <string name="btn_retry">Retry</string>
+    <string name="btn_cancel">Cancel</string>
+    <!-- /button -->
+</resources>
