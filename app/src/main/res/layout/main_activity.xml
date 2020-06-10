@@ -118,7 +118,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/card_view_anim"
+                app:layout_constraintBottom_toTopOf="@+id/card_view_page"
                 app:layout_constraintTop_toBottomOf="@+id/card_view_toast">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -177,7 +177,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_anim"
+                android:id="@+id/card_view_page"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -185,8 +185,67 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/card_view_page"
+                app:layout_constraintBottom_toBottomOf="@+id/card_view_anim"
                 app:layout_constraintTop_toBottomOf="@+id/card_view_popup">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Page"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/grey_300" />
+                    <Button
+                        android:id="@+id/page_no_internet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:text="No. Internet"
+                        android:textAlignment="textStart"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge" />
+                    <Button
+                        android:id="@+id/page_internal_server_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:text="Internal Server Error"
+                        android:textAlignment="textStart"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge" />
+                    <Button
+                        android:id="@+id/page_connection_timeout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:text="Connection Timeout"
+                        android:textAlignment="textStart"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_anim"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_view_page">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -258,103 +317,21 @@
                         android:textAlignment="textStart"
                         android:paddingLeft="@dimen/spacing_mlarge"
                         android:paddingRight="@dimen/spacing_mlarge" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_page"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/card_view_loading"
-                app:layout_constraintTop_toBottomOf="@+id/card_view_anim">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Page"
-                        android:textStyle="bold" />
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/grey_300" />
                     <Button
-                        android:id="@+id/page_no_internet"
+                        android:id="@+id/anim_zoom_in"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
-                        android:text="No. Internet"
+                        android:text="Zoom In"
                         android:textAlignment="textStart"
                         android:paddingLeft="@dimen/spacing_mlarge"
                         android:paddingRight="@dimen/spacing_mlarge" />
                     <Button
-                        android:id="@+id/page_internal_server_error"
+                        android:id="@+id/anim_zoom_out"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
-                        android:text="Internal Server Error"
-                        android:textAlignment="textStart"
-                        android:paddingLeft="@dimen/spacing_mlarge"
-                        android:paddingRight="@dimen/spacing_mlarge" />
-                    <Button
-                        android:id="@+id/page_connection_timeout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:text="Connection Timeout"
-                        android:textAlignment="textStart"
-                        android:paddingLeft="@dimen/spacing_mlarge"
-                        android:paddingRight="@dimen/spacing_mlarge" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_loading"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_view_page">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Loading"
-                        android:textStyle="bold" />
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/grey_300" />
-                    <Button
-                        android:id="@+id/loading_dot_grow"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:text="Dot Grow"
+                        android:text="Zoom Out"
                         android:textAlignment="textStart"
                         android:paddingLeft="@dimen/spacing_mlarge"
                         android:paddingRight="@dimen/spacing_mlarge" />

@@ -139,5 +139,17 @@ class MainActivity : BaseActivity() {
             val animation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
             anim_fade_out.startAnimation(animation)
         }
+        anim_zoom_in.setOnClickListener {
+            anim_zoom_in.visibility = View.VISIBLE
+
+            val animation = AnimationUtils.loadAnimation(this, R.anim.zoom_in)
+            anim_zoom_in.startAnimation(animation)
+        }
+        anim_zoom_out.setOnClickListener {
+            anim_zoom_out.visibility = View.VISIBLE
+
+            val animation = AnimationUtils.loadAnimation(this, R.anim.zoom_out)
+            anim_zoom_out.startAnimation(animation)
+        }
     }
 }
