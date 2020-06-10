@@ -17,6 +17,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/card_view_snackbar"
+                app:layout_constraintTop_toBottomOf="parent" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_snackbar"
                 android:layout_width="0dp"
@@ -26,8 +37,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/card_view_toast"
-                app:layout_constraintTop_toBottomOf="@id/card_view_snackbar">
+                app:layout_constraintBottom_toTopOf="@+id/card_view_toast"
+                app:layout_constraintTop_toBottomOf="@+id/view">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -67,8 +78,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/card_view_popup"
-                app:layout_constraintTop_toBottomOf="@id/card_view_snackbar">
+                app:layout_constraintBottom_toTopOf="@+id/card_view_popup"
+                app:layout_constraintTop_toBottomOf="@+id/card_view_snackbar">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -107,8 +118,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/card_view_anim"
-                app:layout_constraintTop_toBottomOf="@id/card_view_toast">
+                app:layout_constraintBottom_toTopOf="@+id/card_view_anim"
+                app:layout_constraintTop_toBottomOf="@+id/card_view_toast">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -174,8 +185,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/card_view_page"
-                app:layout_constraintTop_toBottomOf="@id/card_view_popup">
+                app:layout_constraintBottom_toBottomOf="@+id/card_view_page"
+                app:layout_constraintTop_toBottomOf="@+id/card_view_popup">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -260,8 +271,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_view_anim">
+                app:layout_constraintBottom_toBottomOf="@+id/card_view_loading"
+                app:layout_constraintTop_toBottomOf="@+id/card_view_anim">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -303,6 +314,47 @@
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
                         android:text="Connection Timeout"
+                        android:textAlignment="textStart"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_loading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_view_page">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Loading"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/grey_300" />
+                    <Button
+                        android:id="@+id/loading_dot_grow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:text="Dot Grow"
                         android:textAlignment="textStart"
                         android:paddingLeft="@dimen/spacing_mlarge"
                         android:paddingRight="@dimen/spacing_mlarge" />

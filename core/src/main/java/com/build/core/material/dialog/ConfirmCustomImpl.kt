@@ -44,7 +44,7 @@ class ConfirmCustomImpl(pType: String) : ConfirmCustom {
 
 object ConfirmWarning : ConfirmCustom {
     override val drawableBackground: Int
-        get() = R.drawable.header_notif
+        get() = R.drawable.header_confirm
     override val drawableShapeButton: Int
         get() = R.drawable.shape_rounded_success
     override val drawableIconShape: Int

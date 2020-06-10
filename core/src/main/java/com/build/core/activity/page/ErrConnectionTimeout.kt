@@ -15,10 +15,10 @@ class ErrConnectionTimeout : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.page_err_connection_timeout)
-        retry()
+        eventOnClick()
     }
 
-    private fun retry() {
+    private fun eventOnClick() {
         val layoutProgressBar = findViewById<LinearLayout>(R.id.layoutProgressBar)
         val layoutErrorDesc = findViewById<LinearLayout>(R.id.layoutErrorDesc)
         val bRetry = findViewById<Button>(R.id.retry)
@@ -34,5 +34,10 @@ class ErrConnectionTimeout : BaseActivity() {
                 layoutErrorDesc.visible()
             }, 1000)
         })
+
+        val bBack = findViewById<Button>(R.id.back)
+        bBack.setOnClickListener {
+            finish()
+        }
     }
 }
